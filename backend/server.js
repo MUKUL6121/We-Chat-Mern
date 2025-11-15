@@ -2,17 +2,17 @@
 const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
-const path = require("path");
+// const path = require("path");
 
 const app = express();
 const server = http.createServer(app);
-app.use(express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "public")));
 
 const io = new Server(server, {
   cors: {
     origin: "http://localhost:5173", // your React app
-    methods: ["GET", "POST"],
-  },
+    methods: ["GET", "POST"]
+  }
 });
 
 var chats = [];
@@ -36,10 +36,6 @@ io.on("connection", (socket) => {
     io.emit("users", users);
     console.log("User disconnected:", socket.id);
   });
-});
-
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 server.listen(2000, () =>
