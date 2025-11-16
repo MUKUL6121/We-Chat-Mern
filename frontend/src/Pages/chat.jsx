@@ -23,7 +23,7 @@ function Chat() {
 
     const connect = () => {
         if (status === "Connect") {
-            socketRef.current = io("http://localhost:2000");
+            socketRef.current = io("https://we-chat-serverm.onrender.com");
 
             socketRef.current.on("connect", () => {
                 console.log("Connected to server");
