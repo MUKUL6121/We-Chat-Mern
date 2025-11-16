@@ -41,7 +41,7 @@ app.get('/',(req,res)=>{
   console.log("'/' link opened");
   
 });
-server.listen(2000, () =>
+server.listen(2000, () =>{
   console.log("Main Server Started");
   console.log("Server running on port 2000\n http://localhost:2000")
-);
+});
